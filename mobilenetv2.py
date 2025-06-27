@@ -69,8 +69,8 @@ model.compile(optimizer=tf.keras.optimizers.Adam(1e-4),
               metrics=['accuracy', tf.keras.metrics.Precision(name='precision'), tf.keras.metrics.Recall(name='recall')])
 
 # Callbacks
-early_stopping = EarlyStopping(monitor='val_loss', patience=45, restore_best_weights=True)
-reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.3, patience=45, min_lr=1e-6)
+early_stopping = EarlyStopping(monitor='val_loss', patience=15, restore_best_weights=True)
+reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.3, patience=15, min_lr=1e-6)
 
 # Train
 history = model.fit(train_data, validation_data=val_data, epochs=50,
